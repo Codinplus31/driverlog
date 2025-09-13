@@ -76,7 +76,7 @@ const App = () => {
     setError('');
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/trip/', {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/trip/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
