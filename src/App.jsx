@@ -210,7 +210,7 @@ const App = () => {
             <p><strong>Fuel Stops:</strong> 1 | <strong>Pickup/Dropoff:</strong> 2 hrs total</p>
             {routePoints.length > 0 && (
               <div className="mt-2 p-2 bg-green-100 border border-green-200 rounded text-xs text-green-800">
-                🗺️ Map shows route based on locations only. Cycle used affects only log calculations.
+                🗺️ Map shows route based on locations only. 
               </div>
             )}
           </div>
