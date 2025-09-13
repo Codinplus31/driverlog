@@ -90,7 +90,7 @@ const App = () => {
       });
 
       const data = await response.json();
-
+      console.log(data)
       if (response.ok && data.success) {
         setLogs(data.logs);
         setRoutePoints(data.route.route_points);
@@ -170,6 +170,9 @@ const App = () => {
                 onChange={(e) => setCurrentCycleUsed(parseFloat(e.target.value))}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
+              <p className="mt-1 text-xs text-green-600">
+                💡 Current cycle used ({currentCycleUsed} hrs) affects only ELD logs — not the map.
+              </p>
             </div>
           </div>
 
@@ -207,6 +210,11 @@ const App = () => {
             )}
             <p><strong>Estimated Distance:</strong> ~{totalDistance !== null ? totalDistance.toFixed(1) : 750} miles | <strong>Est. Driving Time:</strong> ~{totalDistance !== null ? (totalDistance / 55).toFixed(1) : 13.6} hrs</p>
             <p><strong>Fuel Stops:</strong> 1 | <strong>Pickup/Dropoff:</strong> 2 hrs total</p>
+            {routePoints.length > 0 && (
+              <div className="mt-2 p-2 bg-green-100 border border-green-200 rounded text-xs text-green-800">
+                🗺️ Map shows route based on locations only. Cycle used affects only log calculations.
+              </div>
+            )}
           </div>
         </div>
 
